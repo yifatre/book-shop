@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="css/bookshop.css">
+</head>
+
+<body onload="onInit()">
+    <!-- <form onsubmit="onAddBook(event)" class="new-book">
+        <input class="title-input" type="text" placeholder="Book's Title" />
+        <input class="price-input" type="text" placeholder="₪" />
+    </form> -->
+    <button onclick="onAddBook()">Add new book</button>
+    <fieldset>
+        <legend>Filter & Sorting</legend>
+        <form class="filter">
+            <input oninput="onInputFilter(this)" class="filter-input" type="text"
+                placeholder="Search by book's title" />
+            <select onchange="onSelectRatingChange(this)">
+                <option value="">Rating Higher Than</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <button onclick="onClearSearch(event)">Clear</button>
+        </form>
+        <div class="sort-by">
+            Sort by:
+            <select onchange="onSetSortBy()">
+                <option value="title">Title</option>
+                <option value="rating">Rating</option>
+                <option value="price">Price</option>
+            </select>
+            <input type="radio" id="ascending" name="order" value="1" onchange="onSetSortBy()" />
+            <label for="ascending">Ascending</label>
+            <input type="radio" id="descending" name="order" value="-1" onchange="onSetSortBy()" />
+            <label for="descending">Descending</label>
+        </div>
+    </fieldset>
+
+    <section class="display-pref">
+        <button class="list" onclick="onListClick(this)">list</button>
+        <button class="cards" onclick="onCardsClick(this)">cards</button>
+    </section>
+    <section class="pages"><button class="prev" onclick="onPrevPage()">⬅️</button><button class="next"
+            onclick="onNextPage()">➡️</button></section>
+    <table class="books">
+    </table>
+    <section class="books">
+    </section>
+
+    <dialog class="book-details">
+        <form method="dialog">
+            <h2><span></span></h2>
+            <pre></pre>
+            <span class="cover"></span>
+            <button>✖️</button>
+        </form>
+    </dialog>
+    <dialog class="msg">
+        <form method="dialog">
+            <h3><span></span></h3>
+            <button>✖️</button>
+        </form>
+    </dialog>
+
+    <dialog class="book-edit-modal" onclose="onCloseBookEdit()">
+        <form onsubmit="onSaveBook(event)" method="dialog">
+            <h2>Add Book</h2>
+            <input class="title-input" type="text" placeholder="Book Title">
+            <!-- <input  type="number" placeholder="Rating in Range 1-5"> -->
+            <select class="rating-input">
+                <option value="">Rating</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <input class="price-input" type="number" placeholder="Book Price">
+            <div class="actions">
+                <button type="button" onclick="onCloseBookEdit()">Cancel</button>
+                <button>Save</button>
+            </div>
+        </form>
+    </dialog>
+
+    <footer class="stats">
+        <p>Total books: <span class="total"></span></p>
+        <p>Expansive books: <span class="expansive"></span></p>
+        <p>Average priced books: <span class="average"></span></p>
+        <p>Cheap books: <span class="cheap"></span></p>
+    </footer>
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+</body>
+
+</html>

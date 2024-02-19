@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+fieldset {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pages button {
+    background: none;
+    border-style: none;
+    font-size: 1.5em;
+}
+
+table.books td,
+table.books th {
+    padding: 10px;
+    border-style: solid;
+    border-width: 0.5px;
+
+}
+
+table.books {
+    border-collapse: collapse;
+    min-width: 60vw;
+    text-align: center;
+}
+
+section.books {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+section.books div.item {
+    height: 200px;
+    flex-basis: 220px;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-areas:
+        "cover title"
+        "cover rating"
+        "cover price"
+    ;
+    justify-content: center;
+    align-items: center;
+
+    padding-inline: 0.5em;
+}
+
+section.books div.item:nth-of-type(odd) {
+    background-color: rgb(210, 233, 254);
+}
+
+section.books div.item:nth-of-type(even) {
+    background-color: rgb(232, 232, 255);
+}
+
+.item h4 {
+    grid-area: title;
+    align-self: start;
+
+}
+
+.item .price {
+    grid-area: price;
+}
+
+.item .rating {
+    grid-area: rating;
+}
+
+.item img {
+    grid-area: cover;
+    max-height: 180px;
+    max-width: 150px;
+}
+
+button {
+    margin: 3px;
+}
+
+.price-input {
+    width: 4em;
+}
+
+.book-details,
+.msg {
+    width: 50%;
+    position: relative;
+}
+
+.msg {
+    text-align: center;
+}
+
+.book-details form {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+        "title   cover"
+        "details cover"
+    ;
+    gap: 5px;
+    margin: 0;
+}
+
+.book-details form button,
+.msg form button {
+    position: absolute;
+    right: -0.3em;
+    top: 0.1em;
+    text-align: center;
+    border-radius: 50%;
+    border-style: none;
+    background: none;
+}
+
+.book-details form h2 {
+    grid-area: title;
+}
+
+.book-details form pre {
+    grid-area: details;
+}
+
+.cover {
+    /* width: 8em; */
+    grid-area: cover;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.book-details .cover img {
+    width: 8em;
+}
+
+footer {
+    background-color: aliceblue;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-around;
+    gap: 0.5em;
+}
+
+footer p {
+    flex-grow: 1;
+}
